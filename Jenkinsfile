@@ -13,7 +13,7 @@ pipeline {
             sh "docker build -t docker/getting-started ."
 
             steps {
-                withDockerRegistry([url: "", credentialsId: "dockerbuildbot-index.docker.io"]) {
+                withDockerRegistry(credentialsId: 'Docker', url: 'https://hub.docker.com/') {
                     sh("docker push docker/getting-started")
                 }
             }
